@@ -61,6 +61,7 @@ const App = () => {
     } catch (error) {
       console.log("failed to get proposals", error);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasClaimedNFT]);
 
   // We also need to check if the user already voted.
@@ -87,6 +88,7 @@ const App = () => {
     } catch (error) {
       console.error("Failed to check if wallet has voted", error);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasClaimedNFT, proposals, address]);
 
   // This useEffect grabs all the addresses of our members holding our NFT.
@@ -104,6 +106,7 @@ const App = () => {
     } catch (error) {
       console.error("failed to get member list", error);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasClaimedNFT]);
 
   // This useEffect grabs the # of token each member holds.
@@ -120,6 +123,7 @@ const App = () => {
     } catch (error) {
       console.error("failed to get token amounts", error);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasClaimedNFT]);
 
   // Now, we combine the memberAddresses and memberTokenAmounts into a single array
@@ -135,12 +139,14 @@ const App = () => {
         ),
       };
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [memberAddresses, memberTokenAmounts]);
 
   useEffect(() => {
     // We pass the signer to the sdk, which enables us to interact with
     // our deployed contract!
     sdk.setProviderOrSigner(signer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [signer]);
 
   useEffect(async () => {
@@ -165,6 +171,7 @@ const App = () => {
         setHasClaimedNFT(false);
         console.error("failed to nft balance", error);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address]);
 
 
